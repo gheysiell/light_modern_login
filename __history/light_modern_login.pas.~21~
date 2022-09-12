@@ -1,0 +1,68 @@
+unit light_modern_login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+
+type
+  Tform_login = class(TForm)
+    pnl_principal: TPanel;
+    pnl_imagem: TPanel;
+    img_wrapper_sidebar: TImage;
+    lbl_title: TLabel;
+    lbl_init_message: TLabel;
+    img_logo: TImage;
+    pnl_password: TPanel;
+    lbl_password: TLabel;
+    edt_password: TEdit;
+    pnl_bottom_password: TPanel;
+    pnl_username: TPanel;
+    lbl_username: TLabel;
+    edt_username: TEdit;
+    pnl_bottom_username: TPanel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Image1: TImage;
+    procedure btn_fecharClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormResize(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_login: Tform_login;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tform_login.btn_fecharClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure Tform_login.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
+
+procedure Tform_login.FormResize(Sender: TObject);
+begin
+  pnl_principal.Top := Round(form_login.Height / 2 - pnl_principal.Height / 2);
+  pnl_principal.Left := Round(form_login.Width / 2 - pnl_principal.Width / 2);
+end;
+
+procedure Tform_login.Image1Click(Sender: TObject);
+begin
+    Application.Terminate;
+end;
+
+end.
